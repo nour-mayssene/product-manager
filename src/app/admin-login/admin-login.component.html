@@ -1,0 +1,33 @@
+<body>
+    <div class="ab">
+      <div class="sign-up-form">
+        <h1>Admin</h1>
+        <form>
+          <input
+            type="email"
+            #admin
+            class="input-box"
+            placeholder="your email"
+          />
+          <input
+            type="password"
+            #password
+            class="input-box"
+            placeholder="your password"
+            id="myinput"
+          />
+          <p>
+          </p>
+          <button
+             (click)="login({admin : admin.value , password : password.value})"
+            class="signin-btn"
+          >
+            sign in
+          </button>
+          
+      
+        </form>
+      </div>
+    </div>
+  </body>
+  

@@ -1,0 +1,48 @@
+<body>
+  <div class="ab">
+    <div class="sign-up-form">
+      <img src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png" />
+      <h1>sign in</h1>
+      <form>
+        <input
+          type="email"
+          #username
+          class="input-box"
+          placeholder="your email"
+        />
+        <input
+          type="password"
+          #password
+          class="input-box"
+          placeholder="your password"
+          id="myinput"
+        />
+        <p>
+          <span><input type="checkbox" /></span> agree to the terms of service
+        </p>
+        <button
+          (click)="test({username : username.value , password: password.value })"
+          class="signin-btn"
+        >
+          sign in
+        </button>
+        <hr />
+        <p class="or">or</p>
+        <button
+          type="button"
+          class="signup-btn"
+          value="sign-up"
+          (click)="test1() "
+        >
+          sign up
+        </button>
+        <p>
+          do you have an account ?
+          <a (click)="test1()" style="cursor: pointer; color: blue;"
+            >sign up
+          </a>
+        </p>
+      </form>
+    </div>
+  </div>
+</body>

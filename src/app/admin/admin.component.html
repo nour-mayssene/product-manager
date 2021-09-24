@@ -1,0 +1,666 @@
+<!-- <button >crud</button>
+<button (click)="toggle(0)">orders</button>
+
+<div *ngIf="crud">
+  <div class="mb-3 row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Add</label>
+    <div class="col-sm-10">
+      <input
+        type="text"
+        readonly
+        class="form-control-plaintext"
+        id="staticEmail"
+        value="you can add product"
+      />
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" #name />
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">image</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" #image />
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label"
+      >desription</label
+    >
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword" #desription />
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">price</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputPassword" #price />
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">number</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="inputPassword" #number />
+    </div>
+  </div>
+  <a
+    (click)="add(name.value, desription.value, image.value, price.value, number.value)"
+    class="card-link"
+    >add</a
+  >
+
+  <div class="card" style="width: 18rem;" *ngFor="let e of products">
+    <img src="{{e?.image}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{e?.name}}</h5>
+      <p class="card-text">
+        {{e?.description}}
+      </p>
+      <h3>{{e?.description}} dt</h3>
+      <h3>{{e?.number}} dt</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <input type="text" #name value="{{e?.name}}" />
+      </li>
+      <li class="list-group-item">
+        <input type="text" #image value="{{e?.image}}" />
+      </li>
+      <li class="list-group-item">
+        <input type="text" #desription value="{{e?.desription}}" />
+      </li>
+      <li class="list-group-item">
+        <input type="number" #price value="{{e?.price}}" />
+      </li>
+      <li class="list-group-item">
+        <input type="number" #number value="{{e?.number}}" />
+      </li>
+    </ul>
+    <div class="card-body">
+      <a (click)="delete(e._id)" class="card-link">delete</a>
+      <a
+        (click)="update(name.value, desription.value, image.value, price.value, number.value, e._id)"
+        class="card-link"
+        >update</a
+      >
+    </div>
+  </div>
+</div>
+<div *ngIf="orders">
+  <table>
+    <tr>
+      <th>client</th>
+      <th> order status</th>
+      <th>operations</th>
+      <th>change state</th>
+       
+    </tr>
+    <tr *ngFor="let i of dataOrders">
+      <td>{{i?.email}}</td>
+      <td>{{i?.status}}</td>
+      <td>
+        <button (click)="deleteOrder(i._id)">delete</button
+        ><button (click)="fullOrder(i)">full order</button>
+      </td>
+
+      <td><select #a>
+        <option value="approved">approved</option>
+        <option value="declined">declined</option>
+      </select>
+    </td>
+    ><button (click)="answer(a.value , i._id)">Confirm</button>
+
+    </tr>
+    <div id="newsletter" class="w3-modal" style="display: none;">
+      <div class="w3-modal-content w3-animate-zoom" style="padding: 32px;">
+        <div class="w3-container w3-white w3-center">
+          <i
+            onclick="document.getElementById('newsletter').style.display='none'"
+            class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"
+          ></i>
+          <h2 class="w3-wide">order</h2>
+          <p>
+            username: {{ oneOrder?.username}}
+          </p>
+          <p>
+            createdAt: {{ oneOrder?.createdAt}}
+          </p>
+          <p>
+            address: {{ oneOrder?.address}}
+          </p>
+          <p>
+            number: {{ oneOrder?.number}}
+          </p>
+          <p>
+            total: {{ oneOrder?.total}}
+          </p>
+
+          <table>
+            <tr>
+              <th>Product</th>
+              <th>Number of items</th>
+              <th>Price</th>
+            </tr>
+            <tr *ngFor="let i of list">
+              <td>{{i.name}}</td>
+              <td>{{i.price}}</td>
+              <td>{{i.price}}dt</td>
+            </tr>
+          </table>
+          <button
+            type="button"
+            class="w3-button w3-padding-large w3-red w3-margin-bottom"
+            onclick="document.getElementById('newsletter').style.display='none'"
+          >
+            close
+          </button>
+        </div>
+      </div>
+    </div>
+  </table>
+</div> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Poppins"
+  />
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      font-size: 16px;
+    }
+    .w3-half img {
+      margin-bottom: -6px;
+      margin-top: 16px;
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    .w3-half img:hover {
+      opacity: 1;
+    }
+  </style>
+  <body>
+    <!-- Sidebar/menu -->
+    <nav
+      class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding"
+      style="z-index: 3; width: 300px; font-weight: bold;"
+      id="mySidebar"
+    >
+      <br />
+      <a
+        href="javascript:void(0)"
+        onclick="w3_close()"
+        class="w3-button w3-hide-large w3-display-topleft"
+        style="width: 100%; font-size: 22px;"
+        >Close Menu</a
+      >
+      <div class="w3-container">
+        <img
+          style="
+            border-radius: 20%;
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            margin-bottom: 100px;
+          "
+          src="https://takolor.net/wp-content/uploads/2021/01/logos-takolor-horizontal-gris1.png"
+        />
+      </div>
+      <div class="w3-bar-block">
+        <a
+          (click)="toggle(1)"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Manage products</a
+        >
+
+        <a
+          *ngIf="modify"
+          (click)="toggleSeeForm()"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >See Products</a
+        >
+        <a
+          *ngIf="modify"
+          (click)="toggleAddForm()"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Add Products</a
+        >
+
+        <a
+          (click)="toggle(0)"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Orders</a
+        >
+        <a
+          (click)="typee()"
+          onclick="w3_close()"
+          class="w3-bar-item w3-button w3-hover-white"
+          >Type</a
+        >
+        <a (click)="dis()" class="w3-bar-item w3-button w3-hover-white"
+          >Disconnect</a
+        >
+      </div>
+    </nav>
+
+    <!-- Top menu on small screens -->
+    <header
+      class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding"
+    >
+      <a
+        href="javascript:void(0)"
+        class="w3-button w3-red w3-margin-right"
+        onclick="w3_open()"
+        >☰</a
+      >
+      <span>Company Name</span>
+    </header>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div
+      class="w3-overlay w3-hide-large"
+      onclick="w3_close()"
+      style="cursor: pointer;"
+      title="close side menu"
+      id="myOverlay"
+    ></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left: 340px; margin-right: 40px;">
+      <!-- Header -->
+      <div class="w3-container" style="margin-top: 80px;" id="showcase">
+        <h1 class="w3-jumbo"><b>Takolor Administration Side</b></h1>
+        <h1 class="w3-xxxlarge w3-text-red"><b>Product management</b></h1>
+        <hr style="width: 50px; border: 5px solid red;" class="w3-round" />
+      </div>
+
+      <!-- Photo grid (modal) -->
+      <div class="w3-row-padding">
+        <div class="w3-half" style="width: 100%;">
+          <div *ngIf="crud">
+            <div *ngIf="ad">
+              <div class="mb-3 row">
+                <label for="staticEmail" class="col-sm-2 col-form-label"
+                  >Add</label
+                >
+                <div class="col-sm-10">
+                  <h1>Add product</h1>
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label"
+                  >Name</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword"
+                    #name
+                  />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label"
+                  >Image</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword"
+                    #image
+                  />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-2 col-form-label"
+                  >Desription</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword"
+                    #desription
+                  />
+                </div>
+              </div>
+              <select #type>
+                <option *ngFor="let e of preproducts" value="{{e?.name}}"
+                  >{{e?.name}}</option
+                >
+              </select>
+              <button
+                (click)="add({name : name.value , description : description.value , image : image.value  , type : type.value})"
+                class="w3-button w3-blue-gray w3-padding-large w3-hover-black"
+              >
+                Add
+              </button>
+              <button
+                class="w3-button w3-red w3-padding-large w3-hover-black"
+                (click)="toggleAddForm()"
+              >
+                Cancel
+              </button>
+            </div>
+
+            <div *ngIf="see">
+              <div class="grid-container">
+                <div class="grid-item" *ngFor="let e of products">
+                  <img
+                    src="{{e?.image}}"
+                    style="height: 100px; width: 100;"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">{{e?.name}}</h5>
+                    <p class="card-text">
+                      {{e?.description}}
+                    </p>
+                    <h3>{{e?.description}}</h3>
+                  </div>
+                  <div class="card-body">
+                    <a
+                      (click)="delete(e._id)"
+                      class="w3-button w3-padding-large w3-grey w3-margin-bottom"
+                      >Delete</a
+                    >
+                    <a
+                      (click)="openUpdateForm(e)"
+                      class="w3-button w3-blue-gray w3-padding-large w3-hover-black"
+                      >Update</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <!-- (click)="update(name.value, desription.value, image.value, e._id)" -->
+              <!-- 
+  <div  class="card" style="width: 18rem;" *ngFor="let e of products">
+    <img src="{{e?.image}}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{e?.name}}</h5>
+      <p class="card-text">
+        {{e?.description}}
+      </p>
+      <h3>{{e?.description}} dt</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <input type="text" #name value="{{e?.name}}" />
+      </li>
+      <li class="list-group-item">
+        <input type="text" #image value="{{e?.image}}" />
+      </li>
+      <li class="list-group-item">
+        <input type="text" #desription value="{{e?.desription}}" />
+      </li>
+    </ul>
+    <div class="card-body">
+      <a (click)="delete(e._id)" class="card-link">delete</a>
+      <a
+        (click)="update(name.value, desription.value, image.value, e._id)"
+        class="card-link"
+        >update</a
+      >
+    </div>
+  </div> -->
+            </div>
+
+            <div id="date" class="w3-modal">
+              <div
+                class="w3-modal-content w3-animate-zoom"
+                style="padding: 32px;"
+              >
+                <div class="w3-container w3-white w3-center">
+                  <i
+                    onclick="document.getElementById('date').style.display='none'"
+                    class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"
+                  ></i>
+                  <h2 class="w3-wide">Update Form</h2>
+                  <div class="w3-col s12">
+                    <div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                          Product Name :
+                          <input type="text" #name value="{{hold?.name}}" />
+                        </li>
+                        <li class="list-group-item">
+                          Image Url :
+                          <input type="text" #image value="{{hold?.image}}" />
+                        </li>
+                        <li class="list-group-item">
+                          Description :
+                          <input
+                            type="text"
+                            #desription
+                            value="{{hold?.desription}}"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+
+                    <button
+                      (click)="update(name.value, desription.value, image.value, hold._id)"
+                      class="w3-button w3-padding-large w3-red w3-margin-bottom"
+                    >
+                      Confirm Update
+                    </button>
+                    <button
+                      type="button"
+                      style="background-color: darkgray;"
+                      onclick="document.getElementById('date').style.display='none'"
+                      class="w3-button w3-padding-large w3-grey w3-margin-bottom"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="orders">
+            <table>
+              <tr>
+                <th>Client</th>
+                <th>Order status</th>
+                <th>Operations</th>
+                <th>Change state</th>
+                <th>Confirm</th>
+              </tr>
+              <tr *ngFor="let i of dataOrders">
+                <td>{{i?.email}}</td>
+                <td>{{i?.status}}</td>
+                <td>
+                  <button
+                    (click)="deleteOrder(i._id)"
+                    class="w3-button w3-red w3-padding-large w3-hover-black"
+                  >
+                    Delete</button
+                  ><button
+                    (click)="fullOrder(i)"
+                    class="w3-button w3-blue-gray w3-padding-large w3-hover-black"
+                    style="margin-left: 10px;"
+                  >
+                    Full order
+                  </button>
+                </td>
+
+                <td>
+                  <select #a>
+                    <option value="approved">Approved</option>
+                    <option value="declined">Declined</option>
+                  </select>
+                </td>
+                <button
+                  (click)="answer(a.value , i._id)"
+                  class="w3-button w3-green w3-padding-large w3-hover-black"
+                  style="margin-top: 7px;"
+                >
+                  Confirm
+                </button>
+              </tr>
+              <div id="newsletter" class="w3-modal" style="display: none;">
+                <div
+                  class="w3-modal-content w3-animate-zoom"
+                  style="padding: 32px;"
+                >
+                  <div class="w3-container w3-white w3-center">
+                    <i
+                      onclick="document.getElementById('newsletter').style.display='none'"
+                      class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"
+                    ></i>
+                    <h2 class="w3-wide">Order</h2>
+
+                    <table>
+                      <tr>
+                        <th>Product</th>
+                        <th>Starting date</th>
+                        <th>End date</th>
+                      </tr>
+                      <tr *ngFor="let i of list">
+                        <td>{{i.name}}</td>
+                        <td>{{i.start}}</td>
+                        <td>{{i.end}}</td>
+                      </tr>
+                    </table>
+                    <button
+                      type="button"
+                      class="w3-button w3-padding-large w3-red w3-margin-bottom"
+                      onclick="document.getElementById('newsletter').style.display='none'"
+                    >
+                      close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </table>
+          </div>
+        </div>
+        <div *ngIf="type">
+          <button
+            (click)="addtype()"
+            class="w3-button w3-blue-gray w3-padding-large w3-hover-black"
+          >
+            Add
+          </button>
+          <table>
+            <tr>
+              <th>type</th>
+              <th>Operations</th>
+            </tr>
+            <tr *ngFor="let i of preproducts">
+              <td>{{i?.name}}</td>
+              <td>
+                <button
+                  (click)="deletetype(i._id)"
+                  class="w3-button w3-red w3-padding-large w3-hover-black"
+                >
+                  Delete</button
+                ><button
+                  (click)="updatetype(i._id)"
+                  class="w3-button w3-blue-gray w3-padding-large w3-hover-black"
+                  style="margin-left: 10px;"
+                >
+                  Update
+                </button>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="w3-half"></div>
+      </div>
+
+      <!-- Modal for full size images on click-->
+      <div
+        id="modal01"
+        class="w3-modal w3-black"
+        style="padding-top: 0;"
+        onclick="this.style.display='none'"
+      >
+        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+        <div
+          class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64"
+        >
+          <img id="img01" class="w3-image" />
+          <p id="caption"></p>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <img
+        *ngIf="!orders && !see && !ad && !type"
+        src="https://c1.wallpaperflare.com/preview/427/745/192/notebook-natural-laptop-macbook.jpg"
+        alt="Jeans"
+        style="width: 100%; height: 90vh;"
+      />
+
+      <!-- Designers -->
+
+      <!-- Packages / Pricing Tables -->
+
+      <!-- Contact -->
+
+      <!-- End page content -->
+    </div>
+
+    <!-- W3.CSS Container -->
+    <div
+      class="w3-light-grey w3-container w3-padding-32"
+      style="margin-top: 75px; padding-right: 58px;"
+    >
+      <p class="w3-right">
+        Powered by
+        <a
+          href="https://takolor.net/"
+          title="nour.CSS"
+          target="_blank"
+          class="w3-hover-opacity"
+          >Takolor Company</a
+        >
+      </p>
+    </div>
+
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+
+      // Modal Image Gallery
+      function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+      }
+    </script>
+  </body>
+</html>

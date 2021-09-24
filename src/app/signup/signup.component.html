@@ -1,0 +1,60 @@
+<body>
+  <section class="header">
+    <div class="aba">
+      <div class="abc">
+        <div class="container">
+          <img
+            src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png"
+          />
+
+          <h1>sign up</h1>
+          <input
+            type="text"
+            placeholder="Enter first name"
+            #firstName
+            name="email"
+            id="email"
+          />
+          <input
+            type="text"
+            placeholder="Enter last name"
+            name="email"
+            #lastName
+            id="email"
+          />
+          <input
+            type="text"
+            placeholder="Enter Email"
+            name="email"
+            #username
+            id="email"
+          />
+          <input
+            type="password"
+            placeholder="Repeat Password"
+            name="psw-repeat"
+            id="psw-repeat"
+            #password
+          />
+          <hr />
+          <p>
+            By creating an account you agree to our
+            <a href="#">Terms & Privacy</a>.
+          </p>
+          <button
+            (click)="signUp({lastName : lastName.value , firstName : firstName.value , username : username.value , password : password.value})"
+            class="registerbtn"
+          >
+            Register
+          </button>
+          <p>
+            Already have an account?
+            <a (click)="signin()" style="cursor: pointer; color: blue;"
+              >Sign in</a
+            >.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
